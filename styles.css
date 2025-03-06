@@ -1,0 +1,220 @@
+/* Base Styles */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    padding: 20px;
+    line-height: 1.6;
+    margin: 0;
+    transition: background-color 0.3s ease;
+}
+
+.container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #004080 0%, #1a6cb3 100%);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.2rem;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Navigation Sidebar */
+aside {
+    width: 250px;
+    background-color: #f1f5f9;
+    padding: 20px;
+    border-right: 1px solid #e0e0e0;
+    flex-shrink: 0;
+}
+
+.menu-toggle {
+    display: none;
+    background-color: #004080;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.nav-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #004080;
+    border-bottom: 2px solid #004080;
+    padding-bottom: 8px;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.section-link {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #444;
+    border-radius: 6px;
+    margin-bottom: 5px;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+}
+
+.section-link:hover {
+    background-color: #e6f0f9;
+    border-left: 3px solid #6da9de;
+    transform: translateX(3px);
+}
+
+.section-link.active {
+    background-color: #e6f0f9;
+    color: #004080;
+    font-weight: bold;
+    border-left: 3px solid #004080;
+}
+
+/* Main Content */
+main {
+    flex: 1;
+    padding: 20px;
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+.content-section {
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+
+.content-section.active {
+    display: block;
+}
+
+.section {
+    background: #f1f7ff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    border: 1px solid #e6f0f9;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.section:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+h2 {
+    color: #004080;
+    margin-top: 0;
+    border-bottom: 2px solid #e6f0f9;
+    padding-bottom: 10px;
+}
+
+/* PICO Lists */
+ol {
+    padding-left: 20px;
+    counter-reset: item;
+}
+
+ol > li {
+    margin-bottom: 15px;
+    position: relative;
+    list-style-type: none;
+    counter-increment: item;
+}
+
+ol > li:before {
+    content: counter(item) ".";
+    position: absolute;
+    left: -20px;
+    color: #004080;
+    font-weight: bold;
+}
+
+ul {
+    background: #fff;
+    padding: 15px 15px 15px 35px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.05);
+    border: 1px solid #e6e6e6;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+/* Color Highlights */
+.highlight-population {
+    color: #008000;
+    font-weight: bold;
+}
+
+.highlight-intervention {
+    color: #800000;
+    font-weight: bold;
+}
+
+.highlight-comparator {
+    color: #FF0000;
+    font-weight: bold;
+}
+
+.note-box {
+    background-color: #fffbea;
+    padding: 12px;
+    border-radius: 8px;
+    border-left: 4px solid #ffd700;
+    margin: 15px 0;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    aside {
+        width: auto;
+        border-right: none;
+        border-bottom: 1px solid #e0e0e0;
+    }
+    
+    main {
+        max-height: none;
+    }
+}
